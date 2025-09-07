@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonpe UHS High School | Govt. School</title>
+  <meta name="description" content="Official website of Sonpe UHS High School – a Government school focused on inclusive, quality education. Fees are free. Daily attendance is compulsory." />
+  <style>
+    /* ===== Design Tokens ===== */
+    :root{
+      --brand:#0B7A75;         /* primary */
+      --brand-2:#F29F05;       /* accent */
+      --ink:#1f2937;           /* text */
+      --muted:#6b7280;         /* secondary text */
+      --bg:#f8fafc;            /* page bg */
+      --card:#ffffff;          /* surfaces */
+      --ring:rgba(11,122,117,.12);
+      --shadow:0 10px 20px rgba(2,8,23,.08), 0 2px 6px rgba(2,8,23,.06);
+      --radius:22px;
+      --radius-sm:14px;
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;color:var(--ink);background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans",sans-serif;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin-inline:auto;padding:clamp(14px,2.2vw,24px)}
+    .grid{display:grid;gap:clamp(14px,2vw,24px)}
+
+    /* ===== Header / Nav ===== */
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid #eef2f7}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:12px;box-shadow:var(--shadow)}
+    .school-title{font-weight:800;letter-spacing:.2px}
+    .school-sub{color:var(--muted);font-size:.92rem}
+    .pill{background:rgba(11,122,117,.08);color:#0b7a75;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-weight:600}
+
+    /* ===== Hero ===== */
+    .hero{position:relative;overflow:hidden}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    @media (max-width:900px){.hero-wrap{grid-template-columns:1fr}}
+    .hero-card{background:linear-gradient(180deg,#fff, #f7fbfb);border-radius:var(--radius);padding:clamp(18px,3vw,28px);box-shadow:var(--shadow);border:1px solid #eef2f7}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#0b7a7512;color:#0B7A75;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-weight:700}
+    .hero h1{font-size:clamp(28px,4.5vw,44px);line-height:1.2;margin:12px 0}
+    .hero p{color:var(--muted)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;border:none;padding:12px 16px;border-radius:14px;box-shadow:var(--shadow);font-weight:700}
+    .btn.secondary{background:#fff;color:var(--brand);border:1px solid var(--ring)}
+
+    .hero-photo{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);min-height:260px;border:1px solid #eef2f7}
+    .hero-photo img{width:100%;height:100%;object-fit:cover}
+
+    /* ===== Notice Bar ===== */
+    .notice{background:linear-gradient(90deg,#ECFDF5,#fff);border-block:1px solid #e8f2ef}
+    .notice .row{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap}
+    .tag{background:#065f4620;color:#065f46;border:1px solid #b4e0d7;padding:6px 10px;border-radius:999px;font-weight:700}
+
+    /* ===== Cards ===== */
+    .cards{grid-template-columns:repeat(12,1fr)}
+    .card{background:var(--card);border:1px solid #eef2f7;border-radius:var(--radius);padding:clamp(14px,2.2vw,22px);box-shadow:var(--shadow)}
+    .span-4{grid-column:span 4}
+    .span-6{grid-column:span 6}
+    .span-8{grid-column:span 8}
+    @media (max-width:900px){.span-4,.span-6,.span-8{grid-column:1/-1}}
+    .card h3{margin:.2rem 0 .4rem 0}
+    .meta{color:var(--muted);font-size:.95rem}
+    .list{padding-left:1.1rem}
+
+    /* ===== Principal Section ===== */
+    .principal{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:center}
+    @media (max-width:900px){.principal{grid-template-columns:1fr}}
+    .portrait{
+      width:70%;
+      aspect-ratio:2/2;
+      border-radius:100%;
+      overflow:hidden;
+      background:linear-gradient(180deg,#ffffff, #f0f9f8);
+      border:1px solid #e8eef3;
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+    .portrait img{
+      width:100%;height:100%;object-fit:cover;object-position:center;
+      filter:contrast(1.05) saturate(1.02) brightness(1.03);
+      transform:translateZ(0);
+    }
+   
+    /* ===== Footer ===== */
+    footer{background:#0b3d3b;color:#ecfdf5;margin-top:24px}
+    footer a{color:#b7f5e8}
+
+    /* ===== Print tweaks ===== */
+    @media print{
+      header,.btn,.cta{display:none}
+      .card{box-shadow:none;border-color:#cfd8e3}
+      body{background:#fff}
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- Inline SVG Logo: replace text if you have a real logo file -->
+        <svg class="logo" viewBox="0 0 64 64" aria-label="School logo" role="img">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0B7A75"/>
+              <stop offset="1" stop-color="#2fbf87"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="64" height="64" rx="14" fill="url(#g)"/>
+          <g fill="#fff" font-family="system-ui,Segoe UI,Arial" font-weight="800">
+            <text x="50%" y="38" font-size="10" text-anchor="middle">UHS sonpe</text>
+          </g>
+          <circle cx="32" cy="50" r="7" fill="#F29F05"/>
+        </svg>
+        <div>
+          <div class="school-title">Sonpe UHS High School,Jamui</div>
+          <div class="school-sub">Government Institution · Estd.2001 —</div>
+        </div>
+      </div>
+      <nav class="hide-mobile">
+        <a class="pill" href="#admissions">Admissions</a>
+        <a class="pill" href="#academics">Academics</a>
+        <a class="pill" href="#principal">Principal</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero container">
+    <div class="hero-wrap">
+      <div class="hero-card">
+        <span class="hero-badge">Government School · Inclusive · Quality</span>
+        <h1>Learning for Every Child, Every Day</h1>
+        <p>
+          We are a government school dedicated to strong fundamentals, discipline and holistic development. 
+          <strong>Fees are free</strong> as per Government norms, and <strong>daily attendance is compulsory</strong> to ensure continuity of learning.
+        </p>
+        <div class="cta">
+          <a href="#admissions" class="btn">Apply for Admission</a>
+          <a href="#notices" class="btn secondary">View Notices</a>
+        </div>
+      </div>
+      <figure class="hero-photo" aria-label="School campus photo">
+        <!-- 🖼️ Replace src below with your school image file name/path. Example: images/school.jpg  -->
+        <img src="class.jpg" alt="Sonpe UHS High School campus during assembly" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- ==================== NOTICE BAR ==================== -->
+  <section id="notices" class="notice">
+    <div class="container row">
+      <span class="tag">Fee: Free (Govt.)</span>
+      <span class="tag">Attendance: Daily & compulsory</span>
+      <span class="tag">School Hours: 9:00 AM – 4:00 PM</span>
+      <span class="tag">Uniform & Discipline mandatory</span>
+    </div>
+  </section>
+
+  <!-- ==================== KEY INFO CARDS ==================== -->
+  <section class="container grid cards">
+    <article id="admissions" class="card span-4">
+      <h3>Admissions</h3>
+      <p class="meta">Sessions start per Government calendar</p>
+      <ul class="list">
+        <li>No tuition fee; textbooks as per scheme availability</li>
+        <li>Required: Birth certificate, previous TC/report, two photos</li>
+        <li>Reservation as per Govt. rules</li>
+        <li>Mid‑Day Meal provided as per norms</li>
+      </ul>
+      <p><strong>Note:</strong> Regular attendance is essential.</p>
+    </article>
+
+    <article id="academics" class="card span-4">
+      <h3>Academics</h3>
+      <ul class="list">
+        <li>Classes: IX – XII</li>
+        <li>Subjects: Language, Mathematics, Science, Social Science, ICT</li>
+        <li>Assessments: Unit tests, Half‑yearly, Annual</li>
+        <li>Support: Remedial classes & mentorship</li>
+      </ul>
+    </article>
+
+    <article class="card span-4">
+      <h3>Facilities</h3>
+      <ul class="list">
+        <li>Smart classroom (where available)</li>
+        <li>Science lab & library</li>
+        <li>Playground & co‑curricular activities</li>
+        <li>Clean drinking water & sanitation</li>
+      </ul>
+    </article>
+
+    <article class="card span-6">
+      <h3>Co‑Scholastic</h3>
+      <p>Sports, NCC/NSS (if allotted), Art & Culture, Debates, Eco‑Club and community outreach build confidence and teamwork.</p>
+    </article>
+
+    <article class="card span-6">
+      <h3>Parent Partnership</h3>
+      <p>Regular PTMs, progress updates, and attendance alerts help families track learning. Please ensure your child attends school <em>every day</em>.</p>
+    </article>
+  </section>
+
+  <!-- ==================== PRINCIPAL ==================== -->
+  <section id="principal" class="container card" style="margin-top:8px">
+    <div class="principal">
+      <figure class="portrait" aria-label="Principal Sunil Kumar">
+        <!-- 🖼️ Replace the src below with your principal headshot file. Example: images/principal.jpg 
+             The container styles add a professional frame, subtle contrast and a clean crop. -->
+        <img src="prncipal.jpg" alt="Principal Sunil Kumar portrait" />
+      </figure>
+      <div>
+        <h3 style="margin-top:0">From the Principal's Desk</h3>
+        <p class="meta"><strong>Mr. Sunil Kumar</strong>, Principal</p>
+        <p>
+          Welcome to Sonpe UHS High School,Jamui. Our mission is to build strong basics, nurture values and ensure that every child learns with joy and discipline. We focus on problem‑solving, language fluency and scientific temper through activity‑based learning. 
+        </p>
+        <p>
+          I request all parents to send children to school <strong>daily</strong>. Consistent attendance is the single biggest factor in academic success. Together, let us make learning continuous and meaningful.
+        </p>
+        <div class="cta">
+          <a href="#contact" class="btn">Contact Office</a>
+          <a href="#academics" class="btn secondary">View Curriculum</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY / ACHIEVEMENTS ==================== -->
+  <section class="container grid cards" aria-label="Gallery and achievements">
+    <article class="card span-8">
+      <h3>Campus Gallery</h3>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <!-- Add/duplicate tiles as needed; replace src with actual images -->
+        <img src="class.jpg" alt="Assembly at school" style="border-radius:12px;border:1px solid #e8eef3"/>
+        <img src="school celebration1.jpg" alt="School building" style="border-radius:12px;border:1px solid #e8eef3"/>
+        <img src="school celebration.jpg" alt="Classroom activity" style="border-radius:12px;border:1px solid #e8eef3"/>
+      </div>
+    </article>
+    <article class="card span-4">
+      <h3>Key Highlights</h3>
+      <ul class="list">
+        <li>100% Free Tuition (Govt.)</li>
+        <li>Scholarships as per eligibility</li>
+        <li>Regular PTMs & counselling</li>
+        <li>Community & cleanliness drives</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="container card">
+    <h3 style="margin-top:0">Contact</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <div>
+        <p>
+          <strong>Address:</strong> Sonpe UHS High School, (Sonpe,jamui,Bihar)
+          <br /><strong>Office Hours:</strong> 9:00 AM – 4:00 PM (Mon–Sat)
+          <br /><strong>Email:</strong> <a href="mailto:sunildarha@gmail.com">sunildarha@gmail.com</a>
+          <br /><strong>Phone:</strong> <a href="tel:+917991147622">Contact<!--  --></a>
+        </p>
+        <p class="meta">For admission enquiries, bring photocopies of documents and two passport photos.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');" class="card" style="box-shadow:none;border-color:#e6eef5">
+        <label>Name<br><input required type="text" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d7e1ea" /></label>
+        <br>
+        <label>Mobile<br><input required type="tel" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d7e1ea" /></label>
+        <br>
+        <label>Message<br><textarea rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d7e1ea"></textarea></label>
+        <br>
+    <a href="sms:+917991147622?body=Hello, i want to enquire about addmission." class="btn" type="submit">Send Enquiry
+    </a>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="grid" style="grid-template-columns:2fr 1fr 1fr">
+        <div>
+          <strong>Sonpe UHS High School</strong>
+          <p>Government school committed to affordable, inclusive and quality education for all.</p>
+        </div>
+        <div>
+          <strong>Quick Links</strong>
+          <ul class="list">
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#principal">Principal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Policies</strong>
+          <ul class="list">
+            <li>RTE Compliance</li>
+            <li>Anti‑Bullying & Safety</li>
+            <li>Attendance & Leave</li>
+          </ul>
+        </div>
+      </div>
+      <p class="meta">© <span id="year"></span> Sonpe UHS High School · Government of —</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ========= HOW TO USE YOUR PHOTOS =========
+    1) Save your school image as:  images/school.jpg
+    2) Save the Principal photo as: images/principal.jpg
+    3) Put both files in an /images folder next to this HTML file.
+    4) Open this file in a browser.
+
+    Optional (for an even more professional Principal photo look):
+    - Use a tightly cropped head-and-shoulders image on a plain background.
+    - If the background is busy, you can pre‑edit to remove it, or keep as is — the frame here already looks clean.
+  -->
+</body>
+</html>
+
+
+
+
