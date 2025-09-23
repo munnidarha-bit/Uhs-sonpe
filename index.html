@@ -327,6 +327,55 @@
     - Use a tightly cropped head-and-shoulders image on a plain background.
     - If the background is busy, you can pre‑edit to remove it, or keep as is — the frame here already looks clean.
   -->
+  
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+  
+  <!-- Logout Button -->
+<div style="text-align:center; margin: 40px 0;">
+  <button onclick="logout()" 
+          style="background:#e63946; color:#fff; border:none; padding:12px 25px; 
+                 font-size:16px; border-radius:8px; cursor:pointer;">
+    Logout
+  </button>
+</div>
+</script>
+
+
+<!-- Logout Button -->
+<div style="text-align:center; margin: 40px 0;">
+  <button onclick="logout()" 
+          style="background:#e63946; color:#fff; border:none; padding:12px 25px; 
+                 font-size:16px; border-radius:8px; cursor:pointer;">
+    Logout
+  </button>
+</div>
+</script>
+<script>
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("studentName");
+    window.location.href = "login.html";
+  }
+</script>
+
+<!-- Welcome Banner -->
+<div style="text-align:center; padding:20px; background:#f1f1f1; font-size:20px; font-weight:bold;">
+  Welcome, <span id="studentName"></span>!
+</div>
+
+<script>
+  // Show student name from localStorage
+  document.addEventListener("DOMContentLoaded", () => {
+    const student = localStorage.getItem("studentName");
+    if (student) {
+      document.getElementById("studentName").textContent = student;
+    }
+  });
+</script>
+
 </body>
 </html>
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('images/bg-login.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Student Login</h2>
+    <form onsubmit="return validateLogin(event)">
+      <input type="text" id="name" placeholder="Enter Student Name" required>
+      <input type="number" id="roll" placeholder="Enter Roll No (1-120)" required>
+      <input type="number" id="adm" placeholder="Enter Admission No (00-5000)" required>
+      <input type="number" id="phone" placeholder="Enter Phone Number" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function validateLogin(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const roll = parseInt(document.getElementById("roll").value);
+      const adm = parseInt(document.getElementById("adm").value);
+      const phone = document.getElementById("phone").value.trim();
+
+      if (name === "" || roll < 1 || roll > 120 || adm < 0 || adm > 5000 || phone !== "7991147622") {
+        alert("Invalid Login Credentials!");
+        return false;
+      }
+
+      // Save login data in localStorage (so next time user won't login again)
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("studentName", name);
+
+      window.location.href = "index.html"; 
+      return true;
+    }
+
+    // If already logged in, skip login
+    window.onload = () => {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>
