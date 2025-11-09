@@ -67,9 +67,17 @@
       const adm = parseInt(document.getElementById("adm").value);
       const phone = document.getElementById("phone").value.trim();
 
-      if (name === "" || roll < 1 || roll > 120 || adm < 0 || adm > 5000 || phone !== "7991147622") {
-        alert("Invalid Login details!");
-        return false;
+      // Trim करके name में से spaces हटाओ
+const cleanName = name.trim();
+
+if (
+  cleanName.length < 3 ||   // 👈 3 अक्षर से कम (spaces को ignore करता है)
+  roll < 1 || roll > 120 ||
+  adm < 0 || adm > 5000 ||
+  phone !== "7991147622"
+) {
+  alert("Invalid Login details!");
+  return false;
       }
 
       // Save login data in localStorage (so next time user won't login again)
