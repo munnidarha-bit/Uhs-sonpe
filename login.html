@@ -68,7 +68,7 @@
       const phone = document.getElementById("phone").value.trim();
 
       if (name === "" || roll < 1 || roll > 120 || adm < 0 || adm > 5000 || phone !== "7991147622") {
-        alert("Invalid Login Credentials!");
+        alert("Invalid Login details!");
         return false;
       }
 
@@ -76,7 +76,7 @@
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("studentName", name);
 
-      window.location.href = "index1.html"; 
+      window.location.href = "index.html"; 
       return true;
     }
 
